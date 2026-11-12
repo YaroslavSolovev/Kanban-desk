@@ -1,13 +1,14 @@
 type TaskCardProps = {
   task: string;
-  status: 'todo' | 'in-progress' | 'done';
+  id: number;
+  onDeleteTask: (id: number) => void;
 };
 
-function TaskCard({ task, status }: TaskCardProps) {
+function TaskCard({ task, id, onDeleteTask }: TaskCardProps) {
   return (
     <div>
-      <h2>{task}</h2>
-      <p>Status: {status}</p>
+      <h3>{task}</h3>
+      <button onClick={() => onDeleteTask(id)}>Удалить</button>
     </div>
   );
 }
